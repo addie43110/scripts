@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo $1
+
+cd "$1"
+cd Submission\ attachment\(s\)
+cp ../../uvic_data.sql .
+
+sqlite3 uvic_queries ".read uvic_queries.sql" > ans.txt
+diff ../../solution.txt ans.txt
+
+if grep -iq 'create' uvic_queries.sql
+then
+  echo "create used."
+fi

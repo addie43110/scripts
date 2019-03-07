@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+cd "$1"
+cd Submission\ attachment\(s\)
+
+echo "OFFICIAL SOLUTION"
+
+cat ../../solution.txt
+
+printf "\n=====================\n"
+echo "STUDENT SOLUTION"
+cat ans.txt
+
+printf "\n=====================\n"
+echo "STUDENT SQL FILE"
+cat uvic_queries.sql
