@@ -3,6 +3,8 @@ A repository for all the scripts I have written. So far, these have only been wr
 
 filename | description
 --- | ---
+cat-ans | prints out the solution.txt, the student's solution output, and the student's SQL code
+group_together | amalgamates output files into one file and sorts students by name
+line_by_line | outputs students' grades one student at a time so it's easier to transfer to Connex!
 rename.py | changes directory structure and renames folders as needed
 test-student | tests student's sql output against a solution.txt output
-cat-ans | prints out the solution.txt, the student's solution output, and the student's SQL code
