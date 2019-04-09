@@ -2,13 +2,15 @@
 
 
 # note: you need to run rename.py before you can run this script!
+# path to student_dirs and naming within cannot have any spaces, parenthesis, or commas.
 
 # argument: the file you are testing for plagiarism
 STUDENT_FILE=$1
+STUDENT_DIRS=~/Everything/UVic/2019/spring/ta/ass4
 
 
 # for each student directory
-for curr_student in ~/Everything/UVic/2019/spring/ta/ass4/*; do
+for curr_student in $STUDENT_DIRS/*; do
 
 
   # make sure you are going into a directory, not a file
@@ -16,7 +18,7 @@ for curr_student in ~/Everything/UVic/2019/spring/ta/ass4/*; do
     echo "curr_student: $curr_student"
 
     # diff against every other student !
-    for other_student in ~/Everything/UVic/2019/spring/ta/ass4/*
+    for other_student in $STUDENT_DIRS/*
     do
 
 
@@ -41,5 +43,5 @@ for curr_student in ~/Everything/UVic/2019/spring/ta/ass4/*; do
   fi
 
   # go back to all directories
-  cd ~/Everything/UVic/2019/spring/ta/ass4
+  cd $STUDENT_DIRS
 done
