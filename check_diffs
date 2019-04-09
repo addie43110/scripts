@@ -1,0 +1,45 @@
+#!/bin/bash
+
+
+# note: you need to run rename.py before you can run this script!
+
+# argument: the file you are testing for plagiarism
+STUDENT_FILE=$1
+
+
+# for each student directory
+for curr_student in ~/Everything/UVic/2019/spring/ta/ass4/*; do
+
+
+  # make sure you are going into a directory, not a file
+  if [[ -d $curr_student ]] ; then
+    echo "curr_student: $curr_student"
+
+    # diff against every other student !
+    for other_student in ~/Everything/UVic/2019/spring/ta/ass4/*
+    do
+
+
+      # make sure all files exist, you are not checking a student against him-/herself, and the "other student" is a directory, not a file
+      if [[ -d $other_student && -f $other_student/$STUDENT_FILE && -f $curr_student/$STUDENT_FILE && $curr_student != $other_student ]] ; then
+    
+        # diff solution (SQL) files and save result to check
+        DIFF=$(diff $curr_student/$STUDENT_FILE $other_student/$STUDENT_FILE)
+    
+      
+        # if diff returns "", it means files are the same...
+        if [ "$DIFF" == "" ]
+        then
+          echo "$curr_student and $(echo $other_student) have matching files"
+        fi
+      fi
+    done
+  
+    echo ""
+    echo ""
+
+  fi
+
+  # go back to all directories
+  cd ~/Everything/UVic/2019/spring/ta/ass4
+done
